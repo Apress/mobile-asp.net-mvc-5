@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Text</title>
+  <script src="~/content/picturefill/picturefill.js"></script>
+  <style>
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <h1>Using Picturefill</h1>
+
+    <p>Picturefill is a polyfill library that gives you the capabilities of the proposed picture
+      element. <a href="https://github.com/scottjehl/picturefill">You can download picturefill
+      from Github</a>.
+    </p>
+
+<span data-picture data-alt="Me as a horse">
+  <span data-src="/content/picturefill/horseman-small-low-res.jpg"></span>
+  <span data-src="/content/picturefill/horseman-small.jpg"
+    data-media="(min-width: 320px) and (min-resolution: 2dppx)"></span>
+  <span data-src="/content/picturefill/horseman-small.jpg"
+    data-media="(min-width: 320px) and (-webkit-min-device-pixel-ratio: 2)"></span>
+  <span data-src="/content/picturefill/horseman-medium.jpg"
+    data-media="(min-width: 400px)"></span>
+  <span data-src="/content/picturefill/horseman-full.jpg"
+    data-media="(min-width: 800px)"></span>
+
+  <noscript>
+    <img src="/content/picturefill/horseman-small.jpg" alt="Me as a horse">
+  </noscript>
+</span>
+
+
+  </div>
+</body>
+</html>

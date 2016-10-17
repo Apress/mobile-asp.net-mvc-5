@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "TouchableCanvasForIE";
+}
+
+<style>
+  body {
+    -ms-touch-action: none;
+  }
+</style>
+
+<h2>TouchableCanvasForIE</h2>
+
+<div id="output"></div>
+
+<canvas id="theCanvas" style="border: solid 1px #999; -ms-touch-action: none;" width="1200" height="500">
+  <p>You don't support canvas, yo.</p>
+</canvas>
+
+
+
+
+
+<script>
+
+  var theCanvas, c, gesture, output;
+
+  window.onload = function () {
+
+    output = document.getElementById('output');
+    theCanvas = document.getElementById('theCanvas');
+    c = theCanvas.getContext('2d');
+
+    theCanvas.addEventListener('MSPointerMove', function (evt) {
+      evt.preventDefault();
+      drawInput(evt.offsetX, evt.offsetY);
+    });
+
+    theCanvas.addEventListener('MSPointerUp', function (evt) {
+      evt.preventDefault();
+      totalScale = 1, totalRotation = 0;
+    });
+
+    theCanvas.addEventListener('touchmove', function (evt) {
+      evt.preventDefault();
+      var info = normalizeRotationAndScaleForTouch('touch', evt.rotation, evt.scale);
+      //do stuff
+    });
+
+    theCanvas.addEventListener('touchend', function (evt) {
+      totalScale = 1, totalRotation = 0;
+    });
+
+    var eventListener = function (evt) {
+      if (evt.type == "MSPointerDown")  // add pointer on MSPointerDown event
+      {
+        gesture.addPointer(evt.pointerId);
+        return;
+      }
+
+      var info = normalizeRotationAndScaleForTouch('pointer', evt.rotation, evt.scale);
+      //do stuff
+    }
+
+    gesture = new MSGesture();
+    gesture.target = theCanvas;
+
+    theCanvas.addEventListener('MSGestureChange', eventListener, false);
+    theCanvas.addEventListener('MSPointerDown', eventListener, false);
+  }
+
+  var totalScale = 1, totalRotation = 0;
+
+  function normalizeRotationAndScaleForTouch(type, rotation, scale) {
+    if (type === 'touch') {
+      totalScale = scale;
+      totalRotation = rotation;
+    }
+    else {
+      totalScale = totalScale * scale;
+      totalRotation = totalRotation + (rotation * 57.2957795);
+    }
+
+    output.innerHTML = 'Scale: ' + totalScale + '. Rotation: ' + totalRotation + ' degrees';
+    return {
+      scale: totalScale,
+      rotation: totalRotation
+    };
+  }
+
+  function drawInput(x, y) {
+    var radius = 10;
+
+    c.beginPath();
+    c.moveTo(x, y);
+    c.fillStyle = '#F00';
+
+    c.arc(x - (radius / 2), y - (radius / 2), radius, 0, Math.PI * 2, true);
+    c.fill();
+  }
+
+  function outputEvent(evt) {
+    console.log(evt.type, ' pointerId: ', evt.pointerId, ' { x: ' + evt.offsetX + ', y: ' + evt.offsetY + ' }');
+  }
+
+  function outputEventVerbose(evt) {
+
+    //var output = '==================================================\r\n';
+
+    for (var key in evt) {
+
+      if (isFunction(evt[key])) {
+        output += key + ': [function]\r\n';
+      }
+      else {
+        output += key + ': ' + evt[key] + '\r\n';
+      }
+    }
+
+    //console.log(output);
+    //console.log('==================================================\r\n');
+  }
+
+  function isFunction(object) {
+    //return object && getClass.call(object) == '[object Function]';
+    return typeof (object) == "function";
+  }
+
+
+</script>

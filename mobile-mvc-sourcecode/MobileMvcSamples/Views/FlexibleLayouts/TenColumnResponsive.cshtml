@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "TenColumnResponsive";
+    Layout = @"~/Views/Shared/_PlainLayout.cshtml";
+}
+
+<style type="text/css">
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+}
+
+div, span, li {
+  font-family: Helvetica;
+}
+
+.header {
+  background-color: #000;
+  color: #FFF;
+  margin: 0 0 20px 0;
+  padding: 20px 20px;
+}
+
+.header h1 {
+  text-align: center;
+}
+
+.item {
+  border: solid 1px #777;
+  border-radius: 5px;
+  float: left;
+  margin: 5px 5% 5px 5%;
+  max-width: 90%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.item img {
+  margin-top: 2.5%;
+  max-width: 95%;
+}
+
+.item p {
+  min-height: 3em;
+  text-align: center;
+  font-size: .9em;
+}
+
+.footer {
+  background-color: #000;
+  clear: both;
+  color: #FFF;
+  padding: 20px 0;
+  text-align: center;
+}
+
+@@media screen and (min-width: 400px) {
+  .item {
+    max-width: 47.4%;
+    margin: 5px 1%;
+  }
+}
+
+@@media screen and (min-width: 500px) {
+  .item {
+    max-width: 18.6%;
+    margin: 5px .5%;
+  }
+}
+
+@@media screen and (min-width: 800px) {
+  .item {
+    max-width: 9.2%;
+    margin: 5px .25%;
+  }
+}
+
+@@media screen and (max-width:400px) {
+    @@-ms-viewport{
+        width: device-width;
+    }
+}
+
+</style>
+
+
+
+<div class="header">
+  <h1>Stuff I Felt Like Putting in This Demo</h1>
+</div>
+<div class="items">
+  <div class="item">
+    <img src="~/content/images/bacon_500.jpg" />
+    <p>Bacon</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/css_500.jpg" />
+    <p>CSS</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/dice_500.jpg" />
+    <p>Dice</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/greek_500.jpg" />
+    <p>Greek</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/hogan_500.jpg" />
+    <p>Hulk Hogan</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/lolwut_500.jpg" />
+    <p>Lol wut</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/mitt_500.jpg" />
+    <p>Tiny Face Mitt</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/ready_500.jpg" />
+    <p>Ready Player One</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/meat_500.jpg" />
+    <p>Grilling Meat</p>
+  </div>
+  <div class="item">
+    <img src="~/content/images/dragonfruit_500.jpg" />
+    <p>Dragonfruit</p>
+  </div>
+</div>
+<div class="footer">
+  &copy; Eric Sowell, 2013
+</div>

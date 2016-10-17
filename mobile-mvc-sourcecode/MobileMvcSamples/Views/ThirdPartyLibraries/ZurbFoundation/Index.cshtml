@@ -1,0 +1,76 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Zurb Foundation</title>
+  <link href="~/content/third-party-libraries/zurbfoundation/css/normalize.css" rel="stylesheet" />
+  <link href="~/content/third-party-libraries/zurbfoundation/css/foundation.css" rel="stylesheet" />
+
+  <style>
+    .header {
+      background-color: #eee;
+      padding-top: 40px;
+    }
+
+    .header h1 {
+      font-size: 2.4em;
+    }
+
+    .header p {
+      font-size: 1.3em;
+    }
+
+    .main-content {
+      margin-top: 20px;
+    }
+
+    .image-grid {
+      background-color: #eee;
+      padding-top: 20px;
+    }
+
+    img {
+      border: solid 1px #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="row header">
+    <div class="large-12 columns">
+      <h1>Zurb Foundation</h1>
+
+      <p>Zurb Foundation is a responsive grid-focused framework. This is made with foundation 4.3.1.</p>
+    </div>
+  </div>
+
+  <div class="row main-content">
+    <div class="large-6 columns">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+    </div>
+    <div class="large-6 columns">
+      <h2>Heading</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+    </div>
+  </div>
+
+  <ul class="small-block-grid-2 large-block-grid-4 image-grid">
+    <li><img src="~/content/images/dice_200.jpg" /></li>
+    <li><img src="~/content/images/ready_200.jpg" /></li>
+    <li><img src="~/content/images/greek_200.jpg" /></li>
+    <li><img src="~/content/images/bacon_200.jpg" /></li>
+  </ul>
+
+  <script src="~/content/jquery-1-9-0.js"></script>
+  <script src="~/content/third-party-libraries/zurbfoundation/js/foundation.min.js"></script>
+
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>Pinch</title>
+
+  <style>
+    #the-picture {
+      height: 200px;
+      margin: 0;
+      width: 200px;
+      position: absolute;
+      -ms-touch-action: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Move, Resize and Rotate</h1>
+
+  <p>The following example should work on devices and operating systems that support multi-touch, 
+    including Android 4+, iOS 4+, Windows Phone 8, Internet Explorer 10 on a multi-touch monitor,
+    Opera on Android, Firefox on Android, and Firefox OS.
+  </p>
+
+  <img src="/content/images/dragonfruit_500.jpg" id="the-picture" />
+
+  <script src="/content/advancedtouchprogramming/pincher.js?cachebust=@Guid.NewGuid().ToString()"></script>
+  <script>
+    window.addEventListener('load', load);
+
+    function load() {
+      var picture = document.getElementById('the-picture');
+
+      var pincher = new window.Pincher(picture);
+    }
+  </script>
+
+</body>
+</html>

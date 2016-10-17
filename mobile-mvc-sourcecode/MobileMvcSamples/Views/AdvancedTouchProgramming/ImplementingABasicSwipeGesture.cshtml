@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>Implementing a Basic Swipe Gesture</title>
+  <style>
+    #swipable {
+      border: solid 1px #000;
+      color: #AAA;
+      height: 110px;
+      margin: 0 auto;
+      padding-top: 40px;
+      text-align: center;
+      width: 300px;
+
+      -ms-touch-action: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Implementing a Basic Swipe Gesture</h1>
+
+  <div id="swipable">
+    Swipe This
+  </div>
+
+  <script src="/content/advancedtouchprogramming/custom-event-polyfill.js"></script>
+  <script src="/content/advancedtouchprogramming/lazy-swipe.js"></script>
+
+  <script>
+    window.addEventListener('load', load);
+    
+    var swipable;
+
+    function load() {
+      swipable = document.getElementById('swipable');
+
+      new CustomTouch.LazySwipe(swipable);
+
+      swipable.addEventListener('swipeleft', left);
+      swipable.addEventListener('swiperight', right);
+    }
+
+    function left() {
+      swipable.innerHTML = 'left you have swiped';
+    }
+
+    function right() {
+      swipable.innerHTML = 'right you have swiped';
+    }
+
+
+
+
+  </script>
+</body>
+</html>
